@@ -2,14 +2,12 @@ package com.kafkalibrary.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kafkaLibrary.domain.LibraryEvent;
-import com.kafkaproducer.util.TestUtil;
+import com.kafkalibrary.util.TestUtil;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.common.serialization.IntegerDeserializer;
-import org.apache.kafka.common.serialization.IntegerSerializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.apache.kafka.common.serialization.StringSerializer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

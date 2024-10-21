@@ -36,7 +36,7 @@ public class LibraryEventsProducer {
     }
 
     public CompletableFuture<SendResult<Integer, String>> sendLibraryEvent(LibraryEvent libraryEvent) throws JsonProcessingException {
-        var key = libraryEvent.LibraryEventId();
+        var key = libraryEvent.libraryEventId();
         var value = objectMapper.writeValueAsString(libraryEvent);
 
         var CompletableFuture = kafkaTemplate.send(topic,key,value);
@@ -51,7 +51,7 @@ public class LibraryEventsProducer {
                 });
     }
     public CompletableFuture<SendResult<Integer, String>> sendLibraryEvent_producerRecord(LibraryEvent libraryEvent) throws JsonProcessingException {
-        var key = libraryEvent.LibraryEventId();
+        var key = libraryEvent.libraryEventId();
         var value = objectMapper.writeValueAsString(libraryEvent);
 
         var producerRecord = buildProducerRecord(key,value);
@@ -74,7 +74,7 @@ public class LibraryEventsProducer {
     }
 
     public SendResult<Integer, String> sendLibraryEvent_sync(LibraryEvent libraryEvent) throws JsonProcessingException, ExecutionException, InterruptedException {
-        var key = libraryEvent.LibraryEventId();
+        var key = libraryEvent.libraryEventId();
         var value = objectMapper.writeValueAsString(libraryEvent);
 
         var sendResult = kafkaTemplate.send(topic,key,value).get();
